@@ -6,11 +6,10 @@ public class Pangram {
 	
 	public static boolean isPangram(String s) {
 		boolean[] alphabet=new boolean[26];
-		s=s.toLowerCase();
-		for(int i=0;i<s.length();i++) {
-			char ch=s.charAt(i);
-			if(ch>='a' && ch<='z') {
-				alphabet[ch-'a']=true;
+		for(char c:s.toCharArray()){
+			if(Character.isLetter(c)){
+				int index=c-'a';
+				alphabet[index]=true;
 			}
 		}
 		for(boolean letter:alphabet) {
@@ -24,7 +23,7 @@ public class Pangram {
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter a sentence : ");
-		String sentence=sc.nextLine();
+		String sentence=sc.nextLine.toLowerCase();
 		sc.close();
 		
 		if(isPangram(sentence)) {
